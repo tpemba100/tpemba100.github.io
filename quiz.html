@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			
+			function firstFunction() {
+				html = "<img src='chicken.png' class='imgSize'> <p> ok but didnt the chicken come from an egg?</p>";
+  			document.getElementById("answer").innerHTML = html;
+			}
+
+			function secondFunction() {
+				html = "<img src='egg.png' class='imgSize1'><p>ok but didnt the chicken lay that egg?</p>";
+  			document.getElementById("answer").innerHTML = html;
+			}
+		</script>
+
+		<style type="text/css">
+			
+			
+		
+			#answer {
+				background-color: red;
+				width:60%;
+				margin: auto;
+				margin-top: 20px;
+			}
+
+			.imgSize {
+				height: 60%;
+			}
+
+			.imgSize1 {
+				width: 40%;
+				height: 60%;
+			}
+
+			#answer p {
+				color: white;
+				font-size:30px;
+				background-color: black;
+				padding: 10px 0;
+			}
+
+
+			.button {
+				font-size: 30px;
+				transition-duration: 0.4s;
+				margin-right: 20px;
+				background-color: gray;
+			}
+
+			.button1 {
+				padding: 0 34.165px ;
+				font-size: 30px;
+				transition-duration: 0.4s;
+				background-color: gray;
+			}
+
+			.button:hover, .button1:hover {
+ 			 background-color: #4CAF50; /* Green */
+ 			}
+
+			.main {
+				text-align: center;
+				margin-top: 50px;
+			}
+
+			.main p {
+				font-size: 30px;
+			}
+
+			#quizHeading {
+				font-size: 30px;
+				text-align: left;
+				margin-top: -40px;
+			}
+			.main h1 {
+				text-align: center;
+			}
+
+		</style>
+	</head>
+	
+	<body>
+		<div class='main'>
+			<h1 id="quizHeading">QUIZ TIME</h1>
+			<h1 id="head">
+				Hello Guys
+			</h1>
+			<p> Which came first? Chicken or Egg?</p>
+			<button class='button' onclick="firstFunction()">Chicken</button>
+			<button class='button1' onclick="secondFunction()">Egg</button>
+
+			<p id="answer">Choose Wisely</p>
+		</div>
+	</body>
+</html>
