@@ -16,6 +16,10 @@
 		</script>
 
 		<style type="text/css">
+			html {
+				margin:0;
+				padding: 0;
+			}
 
 			#answer {
 				background-color: red;
@@ -24,12 +28,11 @@
 			}
 
 			.imgSize {
-				height: 50%;
+				width:55%;
 			}
 
 			.imgSize1 {
 				width: 40%;
-				height: 60%;
 			}
 
 			#answer p {
@@ -44,14 +47,17 @@
 				font-size: 30px;
 				transition-duration: 0.4s;
 				margin-right: 20px;
+				margin-bottom: 20px;
 				background-color: gray;
+				padding: 5px;
 			}
 
 			.button1 {
-				padding: 0 34.165px ;
+				padding: 2.5px 34.165px ;
 				font-size: 30px;
 				transition-duration: 0.4s;
 				background-color: gray;
+
 			}
 
 			.button:hover, .button1:hover {
@@ -60,21 +66,22 @@
 
 			.main {
 				text-align: center;
-				margin-top: 10px;
 			}
 
 			.main p {
 				font-size: 30px;
+				margin-top: 0;
+				margin-bottom: 10px;
 			}
 
 			#quizHeading {
 				font-size: 30px;
 				text-align: left;
-				margin-top: -40px;
+				margin: 0;
+				font-family: helvetica;
 			}
-			.main h1 {
-				text-align: center;
-			}
+			
+
 
 		</style>
 	</head>
@@ -82,9 +89,6 @@
 	<body>
 		<div class='main'>
 			<h1 id="quizHeading">QUIZ TIME</h1>
-			<h1 id="head">
-				Hello Guys
-			</h1>
 			<p> Which came first? Chicken or Egg?</p>
 			<button class='button' onclick="firstFunction()">Chicken</button>
 			<button class='button1' onclick="secondFunction()">Egg</button>
