@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>Quiz</title>
+		<script type="text/javascript">
+
+			var colors = ["red", "blue", "green"];
+			var Ans;
+
+		
+			function answer(para1) {
+
+				switch(para1) {
+					case 0:
+						document.body.style.backgroundColor = colors[0];
+						document.getElementById("answertxt").innerHTML = "You are Wrong!";
+						break;
+					case 1:
+						document.body.style.backgroundColor = colors[0];
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						break;
+					case 2:
+						document.body.style.backgroundColor = colors[0];
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						break;
+					case 3:
+						document.body.style.backgroundColor = colors[0];
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						break;
+					case 4:
+						document.body.style.backgroundColor = colors[2];
+						document.getElementById("answertxt").innerHTML = "You are correct!";
+						break;
+					case 5:
+						document.body.style.backgroundColor = colors[0];
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						break;
+					case 6:
+						document.body.style.backgroundColor = colors[0];
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						break;
+				}
+			}
+		</script>
+
+		<style type="text/css">
+
+			html {
+				margin:0;
+				padding: 0;
+			}
+
+			body {
+				background-color: gray;
+			}
+
+			.main {
+				text-align: center;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class='main'>
+			<h2>WHICH CONTINENT IS NEPAL IN?</h2>
+
+			<button value="0" id="clickButton" onclick="answer(1)" >Africa</button>
+			<button value="0" id="clickButton" onclick="answer(2)" >Antartica</button>
+			<button value="0" id="clickButton" onclick="answer(3)" >Europe</button>
+			<button value="0" id="clickButton" onclick="answer(4)" >Asia</button>
+			<button value="0" id="clickButton" onclick="answer(5)" >North America</button>
+			<button value="0" id="clickButton" onclick="answer(6)" >South America</button>
+			<button value="0" id="clickButton" onclick="answer(7)" >Australia</button>
+
+			<p id="answertxt">Choose a answer</p>
+		</div>
+
+
+	</body>
+</html>
