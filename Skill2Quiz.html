@@ -29,6 +29,8 @@
 					case 4:
 						document.body.style.backgroundColor = colors[2];
 						document.getElementById("answertxt").innerHTML = "You are Correct!";
+						html = "<img src='asianepal.jpg' class='asianepal'>";
+  						document.getElementById("asiamap").innerHTML = html;
 						break;
 					case 5:
 						document.body.style.backgroundColor = colors[0];
@@ -41,11 +43,7 @@
 				}		
 			}
 
-			function asiaimg() {
-				
-				html = "<img src='asianepal.jpg' class='asianepal'>";
-  				document.getElementById("asiamap").innerHTML = html;
-			}
+			
 
 		</script>
 
@@ -110,7 +108,7 @@
 			<button value="0" id="clickButton" onclick="answer(1)" >Africa</button>
 			<button value="0" id="clickButton" onclick="answer(2)" >Antartica</button>
 			<button value="0" id="clickButton" onclick="answer(3)" >Europe</button>
-			<button value="0" id="clickButton" onclick="answer(4); asiaimg();" >Asia</button>
+			<button value="0" id="clickButton" onclick="answer(4)" >Asia</button>
 			<button value="0" id="clickButton" onclick="answer(5)" >North America</button>
 			<button value="0" id="clickButton" onclick="answer(6)" >South America</button>
 			<button value="0" id="clickButton" onclick="answer(7)" >Australia</button>
