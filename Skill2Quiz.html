@@ -3,48 +3,56 @@
 	<head>
 		<title>Quiz</title>
 		<script type="text/javascript">
-
-			var colors = ["red", "blue", "green"];
+	
+			var colors = ["#99120C", "blue", "#198712"];
 			var Ans;
 
 		
 			function answer(para1) {
-
-				switch(para1) {
+				
+				switch(para1) {	
 					case 0:
 						document.body.style.backgroundColor = colors[0];
 						document.getElementById("answertxt").innerHTML = "You are Wrong!";
 						break;
 					case 1:
 						document.body.style.backgroundColor = colors[0];
-						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"	
 						break;
 					case 2:
 						document.body.style.backgroundColor = colors[0];
-						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"		
 						break;
 					case 3:
 						document.body.style.backgroundColor = colors[0];
-						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"		
 						break;
 					case 4:
 						document.body.style.backgroundColor = colors[2];
-						document.getElementById("answertxt").innerHTML = "You are correct!";
+						document.getElementById("answertxt").innerHTML = "You are Correct!";
+						asiaimg();
 						break;
 					case 5:
 						document.body.style.backgroundColor = colors[0];
-						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"		
 						break;
 					case 6:
 						document.body.style.backgroundColor = colors[0];
-						document.getElementById("answertxt").innerHTML = "You are Wrong!"
+						document.getElementById("answertxt").innerHTML = "You are Wrong!"		
 						break;
-				}
+				}		
 			}
+
+			function asiaimg() {
+				
+				html = "<img src='asianepal.jpg' class='asianepal'>";
+  			document.getElementById("asiamap").innerHTML = html;
+			}
+
 		</script>
 
 		<style type="text/css">
-
+			
 			html {
 				margin:0;
 				padding: 0;
@@ -54,28 +62,60 @@
 				background-color: gray;
 			}
 
+			img {
+				display: block;
+				margin: auto;
+			}
+
 			.main {
 				text-align: center;
 			}
+
+			p {
+				font-size: 60px;
+				margin:0;
+				padding-top: 20px;
+			}
+
+			h2 {
+				font-size: 50px;
+			}
+
+			button {
+				font-size: 25px;
+				padding: 10px;
+			}
+
+			button:hover {
+				background-color: #add8e6;
+			}
+
+			.asianepal {
+				display: block;
+				margin-top: 10px;
+			}
+
 
 		</style>
 	</head>
 
 	<body>
+		<div class='napalimg'>
+			<img src="nepalflag.png">
+		</div>
 		<div class='main'>
 			<h2>WHICH CONTINENT IS NEPAL IN?</h2>
 
 			<button value="0" id="clickButton" onclick="answer(1)" >Africa</button>
 			<button value="0" id="clickButton" onclick="answer(2)" >Antartica</button>
 			<button value="0" id="clickButton" onclick="answer(3)" >Europe</button>
-			<button value="0" id="clickButton" onclick="answer(4)" >Asia</button>
+			<button value="0" id="clickButton" onclick="answer(4); asiaimg();" >Asia</button>
 			<button value="0" id="clickButton" onclick="answer(5)" >North America</button>
 			<button value="0" id="clickButton" onclick="answer(6)" >South America</button>
 			<button value="0" id="clickButton" onclick="answer(7)" >Australia</button>
 
-			<p id="answertxt">Choose a answer</p>
-		</div>
-
-
+			<p id="answertxt">CHOOSE ONE</p>
+			
+			<p id="asiamap"></p>
 	</body>
 </html>
