@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TIK TAC TOE</title>
+		<meta charset="windows-1252">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	    <!-- I WASNT ABLE TO MAKE THE "ITS A TIE FEATURE WORK"-->
+
+	 	<style>
+            
+            *{box-sizing: border-box}
+            
+            .container{width: 300px;
+                       overflow: hidden;
+                       margin: 50px auto 0 auto;
+                       background-color: gray;
+                     }
+            
+            .container span{width: 100%;
+                            display: block;
+                            text-align: center;
+                            color: #fff;
+                            padding: 8px;
+                            font-size: 28px;
+                            font-family: serif;
+                            background: #446CB3;
+                           }
+            
+            .container .box{float: left;
+                            width: 100px;
+                            height: 100px;
+                            border: 3px solid #000;
+                            border-color: #446CB3;
+                            transition: all .25s ease-in-out;
+                            font-family: sans-serif; 
+                            font-size: 85px;
+                            text-align: center;
+                            line-height: 100px; 
+                            cursor: pointer;
+
+                          }
+            
+            .container .box:hover{background: #26C281;
+                                  color: #fff
+                                 }
+            
+            button{background: #26C281;
+                   color: #fff;
+                   font-weight: bold;
+                   border: 1px solid yellow;
+                    cursor: pointer; 
+                    width: 200px;
+                    height: 40px; 
+                    font-size: 22px;
+                    display: block;
+                    margin: 10px auto}
+            
+            .win{background: #F9690E; color: #fff}
+            
+        </style>
+	</head>
+	<body>
+		<div class="container" id="main">
+
+			<!--this the main container where we click and show x or 0-->
+			<span id="turn">Come Play</span>
+
+			<div class="box" id="box1"></div>
+			<div class="box" id="box2"></div>
+			<div class="box" id="box3"></div>
+			<div class="box" id="box4"></div>
+			<div class="box" id="box5"></div>
+			<div class="box" id="box6"></div>
+			<div class="box" id="box7"></div>
+			<div class="box" id="box8"></div>
+			<div class="box" id="box9"></div>
+		</div>
+
+		<!--this button will restart and reset game-->
+		<button onclick="reset()">Play Again</button>
+
+		<h3>I wasnt able to make the "ITS A TIE FEATURE WORK"</h3>
+		<h4>Sorry for lateness, i had to really understand objects and tik tac toe in a code way </h4>
+
+		<!--JAVA SCRIPT -->
+		<script>
+			//boxes is all the div in #main
+			//XorO is the number count till 8 inclusing 0. 9boxes
+		   //querySelectorAll returns the list of elements inside
+
+			var turn = document.getElementById("turn");
+			var boxes = document.querySelectorAll("#main div");
+			var XorO = 0;
+
+			//alert(box1.innerHTML);
+
+
+			//the 3 winning boxes is being put in this parameter
+			//using the classList, its adding the higlight by ID from the css
+			//its taking the winners x or o and announcing it
+			function theWinnerBoxes(b1,b2,b3,t) {
+				
+				b1.classList.add("win");
+					b2.classList.add("win");
+					b3.classList.add("win");
+					turn.innerHTML = b1.innerHTML + " Won the Match";
+
+
+				//if no winner, announce its a tie______ DID NOT WORK
+				/*
+				if(XorO === 8 && t === "tie" && b1 !== b2 && b1 !== b3) {
+					turn.innerHTML = "Its a tie";
+				}
+				else {
+					b1.classList.add("win");
+					b2.classList.add("win");
+					b3.classList.add("win");
+					turn.innerHTML = b1.innerHTML + "Won the Match";
+				}
+				*/
+			}
+
+			function checkWinner() {
+				//putting the boxes into var
+				var box1 = document.getElementById("box1"),
+					box2 = document.getElementById("box2"),
+					box3 = document.getElementById("box3"),
+					box4 = document.getElementById("box4"),
+					box5 = document.getElementById("box5"),
+					box6 = document.getElementById("box6"),
+					box7 = document.getElementById("box7"),
+					box8 = document.getElementById("box8"),
+					box9 = document.getElementById("box9");
+
+
+				//all winning possiblity
+				if(box1.innerHTML !== "" && box1.innerHTML === box2.innerHTML && box1.innerHTML === box3.innerHTML)
+					theWinnerBoxes(box1,box2,box3);
+
+				if(box4.innerHTML !== "" && box4.innerHTML === box5.innerHTML && box4.innerHTML === box6.innerHTML)
+					theWinnerBoxes(box4,box5,box6);
+
+				if(box7.innerHTML !== "" && box7.innerHTML === box8.innerHTML && box7.innerHTML === box9.innerHTML)
+					theWinnerBoxes(box7,box8,box9);
+
+				if(box1.innerHTML !== "" && box1.innerHTML === box4.innerHTML && box1.innerHTML === box7.innerHTML)
+					theWinnerBoxes(box1,box4,box7);
+
+				if(box2.innerHTML !== "" && box2.innerHTML === box5.innerHTML && box2.innerHTML === box8.innerHTML)
+					theWinnerBoxes(box3,box5,box8);
+
+				if(box3.innerHTML !== "" && box3.innerHTML === box6.innerHTML && box3.innerHTML === box9.innerHTML)
+					theWinnerBoxes(box3,box6,box9);
+
+				if(box1.innerHTML !== "" && box1.innerHTML === box5.innerHTML && box1.innerHTML === box9.innerHTML)
+					theWinnerBoxes(box1,box5,box9);
+
+				if(box3.innerHTML !== "" && box3.innerHTML === box5.innerHTML && box3.innerHTML === box7.innerHTML)
+					theWinnerBoxes(box3,box5,box7);
+
+				
+				// if its the last move and no winner annouce ..... DID NOT WORK
+				/*if(XorO === 8) {
+					theWinnerBoxes(0,0,0,"tie");
+				} */
+			}
+
+			//itteration that happens after the onclick
+			//itteration on all boxes, if a box[i] is clicked then do something
+			//make sure to not make clicked already clickable
+			//if so first even number which is 0 is X, puts the innerHTML and checks if it won and adds 1 to XorO
+			//then else does the same and adds one
+
+			for(var i = 0; i <=8; i++){
+				boxes[i].onclick = function() {
+					if(this.innerHTML !== "X" && this.innerHTML !== "O"){
+						if(XorO %2 === 0){
+							this.innerHTML = "X";
+							turn.innerHTML = "O turn now";
+							checkWinner();
+							console.log(XorO);
+							XorO += 1;
+							//alert(turn.innerHTML);
+						}
+						else{
+							this.innerHTML = "O";
+							turn.innerHTML = "X turn now";
+							checkWinner();
+							console.log(XorO);
+							XorO += 1;
+
+						}
+					}
+
+				};
+			}
+
+			
+			//reset the win ID, the inner HTML, the turn title	
+			function reset() {
+				for(var i = 0; i <=8; i++){
+					XorO === 0;
+					boxes[i].classList.remove("win");
+					boxes[i].innerHTML = "";
+					turn.innerHTML = "Come Play";
+				}
+			}
+
+		</script>
+	</body>
+</html>
