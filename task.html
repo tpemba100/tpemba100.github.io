@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">  
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style type="text/css">
+		*{
+		  margin: 0;
+		  padding: 0;
+		  font-family: "montserrat",sans-serif;
+		  box-sizing: border-box;
+		}
+
+		body{
+		  background-image: linear-gradient(120deg,#1e3799,#f6b93b);
+		  min-height: 100vh;
+		}
+
+
+		.container{
+		  max-width: 800px;
+		  margin: auto;
+		  padding: 10px;
+		  padding-top: 50px;
+		}
+
+		.txtbutton{
+		  width: 100%;
+		  border: none;
+		  border-bottom: 2px solid #000;
+		  background: none;
+		  padding: 10px;
+		  outline: none;
+		  font-size: 18px;
+		}
+
+		h3{
+		  margin: 10px 0;
+		}
+
+		.task{
+		  width: 100%;
+		  background: rgba(255,255,255,0.5);
+		  padding: 18px;
+		  margin: 6px 0;
+		  overflow: hidden;
+		}
+
+		.task i{
+		  float: right;
+		  margin-left: 20px;
+		  cursor: pointer;
+		}
+
+		.complete .task{
+		  background: rgba(0,0,0,.5);
+		  color: #fff;
+		}
+
+		h2 {
+		  margin: 10px 0;
+		  color: white;
+		  text-align: center;
+		  font-size: 50px;
+		  margin-bottom: 30px;
+		}
+	
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <h2>Your Weekly Task</h2>
+      <input type="text" class="txtbutton" placeholder="Add a task">
+      <div class="notcomplete">
+        <h3>Not Completed</h3>
+      </div>
+
+
+      <div class="complete">
+        <h3>Completed</h3>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      $(".txtbutton").on("keyup",function(e){
+        	//13  means enter button
+	        if(e.keyCode == 13 && $(".txtbutton").val() != "")
+	        {
+	          // creates a a task div and adds the text value in it
+	          var task = $("<div class='task'></div>").text($(".txtbutton").val());
+	          
+	          //adds the icon
+	          //deleting the task when pressed on trash
+	          var del = $("<i class='fas fa-trash-alt'></i>").click(function(){
+	            var p = $(this).parent();
+	            p.fadeOut(function(){
+	              p.remove();
+	            });
+	          });
+
+	          //if check is pressed, go fade, removes and adds to complete
+	          var check = $("<i class='fas fa-check'></i>").click(function(){
+	            var p = $(this).parent();
+	            p.fadeOut(function(){
+	              //adds to completed tasks
+	              $(".complete").append(p);
+	              p.fadeIn();
+	            });
+	            $(this).remove();
+	          });
+
+
+
+	          task.append(del,check);
+	          // adds the task to not complete task
+	          $(".notcomplete").append(task);
+	            //to clear the input
+	          $(".txtbutton").val("");
+	        }
+      });
+    </script>
+
+  </body>
+</html>
