@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>object</title>
+	<title> json example</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+	<script>
+
+			function clicks () {
+					 image = $.get("https://dog.ceo/api/breeds/image/random", function (data, status){
+						console.log(data);
+						image = "<img src='" + data["message"]+"'>"
+						$("#imgs").append(image);
+					});
+			}
+
+			function reset(){
+				$("#imgs").empty();
+			}
+			
+		
+	</script>
+	<style type="text/css">
+		#message {
+			background-color: green;
+
+		}
+
+		#mesage img {
+			width: 20px;
+		}
+	</style>
+
+
 </head>
 <body>
-
-<script>
-	var students1 = {
-		name: "Tsering Pemba",
-		degree: "BA in Design",
-		age: "24",
-		place: "Queens"
-	};
-
-	var students2 = {
-		name: "John Dean",
-		degree: "BA in Business",
-		age: "24",
-		place: "Brooklyn"
-	};
-
-	alert(students1.name + " studies " + students1.degree + " and " + students2.name + " studies " + students2.degree + " . But they are both age 24 and they both live in queens");
-</script>
+	<h1>This is the json</h1>
+	<h4>Click me to keep adding more images & click reset to clear the space for more dogs</h4>
+	<input type="button" onclick="clicks()" id="myBtn0" value="click me">
+	<input type="button" onclick="reset()" id="myBtn0" value="reset">
+	<div id="message">
+		<div id="imgs"></div>
+	</div>
 </body>
+
+
 </html>
