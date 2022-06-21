@@ -1,0 +1,10 @@
+h1 {
+  font-size: 50px;
+  text-align: center;
+  color: red;
+}
+
+#buttons-cont {
+  display; flex;
+  align-iterm: center;
+}
