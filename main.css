@@ -6,5 +6,7 @@ h1 {
 
 #buttons-cont {
   display; flex;
-  align-iterm: center;
+  align-item: center;
 }
+
+
